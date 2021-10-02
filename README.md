@@ -49,4 +49,6 @@ At the beginning of Backable's development, voting will be off-chain through a w
 
 ## NATOR's Tokenomics
 
+**Market Cap**: `10,000,000 NATOR`
+
 ![nator-tokenomics](./assets/meta-chart.png)
