@@ -40,3 +40,7 @@ Among the options that can be voted on are:
 - Partnerships
 
 At the beginning of Backable's development, voting will be off-chain through a web platform, but as the project evolves it will become a chain.
+
+## NATOR's Tokenomics
+
+![nator-tokenomics](./assets/meta-chart.png)
