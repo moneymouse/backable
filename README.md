@@ -1,5 +1,6 @@
 # Backable
 
+<p align="center"><img src="./assets/readme-header.png" alt="Verge Source Code"></p>
 <p>
   <img src="https://img.shields.io/badge/license-MIT-blue.svg">
 </p>
@@ -22,7 +23,7 @@ Nervos breaks with several of the current problems of Bitcoin and Ethereum, main
 
 Nervos is the only blockchain that truly seeks interoperability, this allows Backable to not only reach Nervos users but also Ethereum users and soon other blockchains.
 
-## Why CKBStable?
+## Why Backable?
 
 Cryptocurrencies are growing at an accelerated rate, even the country of El Salvador in Latin America allowed the use of Bitcoin as a legal means of payment, but this will bring a lot of conflict for certain types of payment such as micropayments and payments that require speed, confirmation almost instantaneous and price stability in the face of fluctuations.
 
