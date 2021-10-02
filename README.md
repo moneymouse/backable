@@ -1,5 +1,10 @@
 # Backable
 
+<p>
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg">
+</p>
+
+
 ## What is Backable?
 Backable is the first decentralized and collateralized stablecoin protocol with a value pegged to the US dollar on the Nervos network.
 
