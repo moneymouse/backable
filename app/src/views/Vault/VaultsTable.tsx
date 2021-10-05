@@ -14,18 +14,6 @@ import { DataContext } from "../../contexts";
 const VaultsTable: React.FC = () => {
   const { vaults } = React.useContext(DataContext);
 
-  const createData = (
-    id: number,
-    ratio: number,
-    deposited: number,
-    avail: number,
-    bcusd: number
-  ) => {
-    return { id, ratio, deposited, avail, bcusd };
-  };
-
-  const rows = [createData(4042, 212.65, 200, 50, 150)];
-
   return (
     <TableContainer component={Paper} sx={{ marginTop: 4, padding: 4 }}>
       <TableStyled>
