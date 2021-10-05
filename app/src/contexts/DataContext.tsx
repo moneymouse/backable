@@ -39,6 +39,12 @@ const DataProvider: React.FC = ({ children }) => {
 
   const updateVaults = (obj: never) => {
     setVaults((prevState) => [...prevState, obj]);
+
+    setTxStatus("none");
+    setAuthStatus(0);
+    setAddress(0x0);
+    setCkbBalance(0);
+    setTxHistory([]);
   };
 
   return (

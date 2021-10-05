@@ -40,8 +40,10 @@ const Vault = () => {
   React.useEffect(() => {
     setInterval(() => {
       getCkbPrice();
+      // Just to use set CKBAmount and skip warnings, then remove or use
+      setCkbAmount(100000);
     }, 5000);
-  }, []);
+  });
 
   const getCkbPrice = async () => {
     try {
