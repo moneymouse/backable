@@ -34,7 +34,7 @@ const Vault = () => {
   const [ckbSelected, setCkbSelected] = React.useState(0);
 
   const { ckbPrice, updateCkbPrice } = React.useContext(CkbPriceContext);
-  const { updateVaults, ckbBalance } = React.useContext(DataContext);
+  const { updateVaults, ckbBalance, updateBalance } = React.useContext(DataContext);
 
   React.useEffect(() => {
     setInterval(() => {
@@ -105,12 +105,16 @@ const Vault = () => {
                 onChange={handleChange}
               />
               <Button
-                onClick={() => updateVaults({
-                  id: 4001,
-                  ration: 166.6,
-                  ckb: 50,
-                  bcusd: 150,
-                })}
+                onClick={() => {
+                  updateVaults({
+                    id: 4001,
+                    ratio: 166.6,
+                    ckb: ckbSelected,
+                    avail: (ckbSelected  * .10).toFixed(0),
+                    bcusd: calculateMaxAmountToMint(ckbSelected),
+                  });
+                  updateBalance(ckbBalance - ckbSelected);
+                }}
                 disabled={
                   Math.floor(calculateMaxAmount(ckbSelected)) <= 0 ||
                   ckbSelected > Math.floor(ckbBalance - 1)

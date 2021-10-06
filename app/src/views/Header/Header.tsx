@@ -85,14 +85,15 @@ const Header: React.FC = ({ children }) => {
 
   const selectAddress = async () => {
     const address: any = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
     updateAddress(address[0]);
-    
+
     setLogged(true);
-    await getBalance()
+    await getBalance(address[0])
   }
 
-  const getBalance = async () => {
-    const balance = await getCkbBalance(address);
+  const getBalance = async (addr: string) => {
+    const balance = await getCkbBalance(addr);
     updateBalance(balance);
   }
 

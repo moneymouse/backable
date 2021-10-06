@@ -37,7 +37,7 @@ const VaultsTable: React.FC = () => {
               >
                 <TableCell>{row.id}</TableCell>
                 <TableCell>{row.ratio}%</TableCell>
-                <TableCell>{row.deposited} CKB</TableCell>
+                <TableCell>{row.ckb} CKB</TableCell>
                 <TableCell>{row.avail} CKB</TableCell>
                 <TableCell>{row.bcusd} BCUSD</TableCell>
                 <TableCell>
