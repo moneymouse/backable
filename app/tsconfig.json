@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
     "target": "es2020",
-    "lib": ["es2020", "dom", "dom.iterable", "esnext"],
+    "lib": [
+      "es2020",
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,5 +24,7 @@
     "noImplicitAny": true,
     "noImplicitThis": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
