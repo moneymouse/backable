@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import {
   Table as TableStyled,
   TableCell,
@@ -10,16 +9,6 @@ import {
 } from "@mui/material";
 
 const Table: React.FC = () => {
-  React.useEffect(() => {
-    getTxsByAddress("ckb1qyq0x8pn75q6tfxl3lmhdcsvewqc0xhmk4lqfws0e9");
-  }, []);
-
-  const getTxsByAddress = async (address: string) => {
-    const txs = await axios.get(
-      "https://api.explorer.nervos.org/api/v1/address_transactions/" + address
-    );
-    console.log(txs.data);
-  };
 
   const createData = (date: string, hash: string) => {
     return { date, hash };

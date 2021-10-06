@@ -86,6 +86,7 @@ const Header: React.FC = ({ children }) => {
   const selectAddress = async () => {
     const address: any = await window.ethereum.request({ method: 'eth_requestAccounts' });
     updateAddress(address[0]);
+    
     setLogged(true);
     await getBalance()
   }
@@ -93,7 +94,6 @@ const Header: React.FC = ({ children }) => {
   const getBalance = async () => {
     const balance = await getCkbBalance(address);
     updateBalance(balance);
-    console.log(balance);
   }
 
   return (

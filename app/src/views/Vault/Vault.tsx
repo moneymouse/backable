@@ -39,7 +39,7 @@ const Vault = () => {
   React.useEffect(() => {
     setInterval(() => {
       getCkbPrice();
-    }, 5000);
+    }, 10000);
   });
 
   const getCkbPrice = async () => {
