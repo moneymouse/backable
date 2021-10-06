@@ -64,6 +64,9 @@ interface IERC20 {
         address recipient,
         uint256 amount
     ) external returns (bool);
+    
+    function mint(address recipient, 
+        uint256 amount) external;
 
     /**
      * @dev Emitted when `value` tokens are moved from one account (`from`) to
