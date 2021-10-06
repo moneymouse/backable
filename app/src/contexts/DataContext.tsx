@@ -13,7 +13,7 @@ interface DataProps {
   txStatus: string | any;
   authStatus: number;
   address: string | any;
-  ckbBalance: number;
+  ckbBalance: number | any;
   txHistory: string[];
   vaults: Vault[] | any;
   updateVaults: any;
