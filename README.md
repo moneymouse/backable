@@ -6,6 +6,8 @@
 </p>
 
 
+**Backable Address contract on Testnet**: `0x98d9d37089E93592ca583f42672b0155EE9D8465`
+
 ## What is Backable?
 Backable is the first decentralized and collateralized stablecoin protocol with a value pegged to the US dollar on the Nervos network.
 
