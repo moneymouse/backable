@@ -31,17 +31,14 @@ const Wrapper = styled.div`
 `;
 
 const Vault = () => {
-  const [ckbAmount, setCkbAmount] = React.useState(100000);
   const [ckbSelected, setCkbSelected] = React.useState(0);
 
   const { ckbPrice, updateCkbPrice } = React.useContext(CkbPriceContext);
-  const { updateVaults } = React.useContext(DataContext);
+  const { updateVaults, ckbBalance } = React.useContext(DataContext);
 
   React.useEffect(() => {
     setInterval(() => {
       getCkbPrice();
-      // Just to use set CKBAmount and skip warnings, then remove or use
-      setCkbAmount(100000);
     }, 5000);
   });
 
@@ -92,7 +89,7 @@ const Vault = () => {
               <TextField
                 sx={{ color: "white", outline: "white", width: "100%" }}
                 required
-                label={"max: " + ckbAmount}
+                label={"max: " + Math.floor(ckbBalance - 1)}
                 type="number"
                 value={ckbSelected}
                 onChange={handleInputChange}
@@ -102,7 +99,7 @@ const Vault = () => {
               </TextField>
               <Slider
                 min={0}
-                max={ckbAmount}
+                max={Math.floor(ckbBalance - 1)}
                 size="small"
                 value={ckbSelected}
                 onChange={handleChange}
@@ -116,7 +113,7 @@ const Vault = () => {
                 })}
                 disabled={
                   Math.floor(calculateMaxAmount(ckbSelected)) <= 0 ||
-                  ckbSelected > ckbAmount
+                  ckbSelected > Math.floor(ckbBalance - 1)
                 }
                 sx={{ width: "100%" }}
                 color="primary"

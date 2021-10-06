@@ -18,6 +18,7 @@ interface DataProps {
   vaults: Vault[] | any;
   updateVaults: any;
   updateAddress: any;
+  updateBalance: any;
 }
 
 export const Context = createContext<DataProps>({
@@ -29,6 +30,7 @@ export const Context = createContext<DataProps>({
   vaults: [],
   updateVaults: () => null,
   updateAddress: () => null,
+  updateBalance: () => null
 });
 
 const DataProvider: React.FC = ({ children }) => {
@@ -48,9 +50,12 @@ const DataProvider: React.FC = ({ children }) => {
 
     setTxStatus("none");
     setAuthStatus(0);
-    setCkbBalance(0);
     setTxHistory([]);
   };
+
+  const updateBalance = (balance: number) => {
+    setCkbBalance(balance);
+  }
 
   return (
     <Context.Provider
@@ -62,7 +67,8 @@ const DataProvider: React.FC = ({ children }) => {
         txHistory,
         vaults,
         updateVaults,
-        updateAddress
+        updateAddress,
+        updateBalance
       }}
     >
       {children}

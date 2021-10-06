@@ -5,6 +5,7 @@ interface Window {
     isMetaMask?: true;
     request: (...args: any[]) => Promise<void>;
     selectedAddress?: string;
+    enable: any;
   };
 }
 

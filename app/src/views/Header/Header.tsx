@@ -4,6 +4,7 @@ import styled, { keyframes } from "styled-components";
 import Button from "../../components/Button/Button";
 import { BackableWhiteIcon, MetamaskIcon } from "../../components/Svg";
 import { DataContext } from "../../contexts";
+import { getCkbBalance } from "../../util/metamask";
 
 const HeaderStyled = styled.div`
   align-items: center;
@@ -76,16 +77,7 @@ const Blob = styled.div`
 
 const Header: React.FC = ({ children }) => {
   const [logged, setLogged] = React.useState(false);
-  const {address, updateAddress} = React.useContext(DataContext);
-
-
-  React.useEffect(() => {
-    const selectedAddress = window.ethereum.selectedAddress;
-    if (selectedAddress != null) {
-      updateAddress(selectedAddress);
-      setLogged(true);
-    }
-  }, [updateAddress]);
+  const {address, updateAddress, updateBalance} = React.useContext(DataContext);
 
   const formatAddress = (addr: string): string => {
     return addr.slice(0, 7) + "..." + addr.slice(-4)
@@ -95,6 +87,13 @@ const Header: React.FC = ({ children }) => {
     const address: any = await window.ethereum.request({ method: 'eth_requestAccounts' });
     updateAddress(address[0]);
     setLogged(true);
+    await getBalance()
+  }
+
+  const getBalance = async () => {
+    const balance = await getCkbBalance(address);
+    updateBalance(balance);
+    console.log(balance);
   }
 
   return (
