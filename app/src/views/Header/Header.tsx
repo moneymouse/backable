@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 
 import Button from "../../components/Button/Button";
 import { BackableWhiteIcon, MetamaskIcon } from "../../components/Svg";
+import { DataContext } from "../../contexts";
 
 const HeaderStyled = styled.div`
   align-items: center;
@@ -74,7 +75,28 @@ const Blob = styled.div`
 `;
 
 const Header: React.FC = ({ children }) => {
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = React.useState(false);
+  const {address, updateAddress} = React.useContext(DataContext);
+
+
+  React.useEffect(() => {
+    const selectedAddress = window.ethereum.selectedAddress;
+    if (selectedAddress != null) {
+      updateAddress(selectedAddress);
+      setLogged(true);
+    }
+  }, [updateAddress]);
+
+  const formatAddress = (addr: string): string => {
+    return addr.slice(0, 7) + "..." + addr.slice(-4)
+  }
+
+  const selectAddress = async () => {
+    const address: any = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    updateAddress(address[0]);
+    setLogged(true);
+  }
+
   return (
     <HeaderStyled>
       <BackableWhiteIcon width={40} />
@@ -91,12 +113,12 @@ const Header: React.FC = ({ children }) => {
       </MenuWrapper>
 
       <Button
-        onClick={() => setLogged(!logged)}
+        onClick={selectAddress}
         startIcon={
           !logged ? <MetamaskIcon /> : <Blob className="blob white"></Blob>
         }
       >
-        {!logged ? "Connect Wallet" : "0x65Bf.....d891"}
+        {!logged ? "Connect Wallet" : formatAddress(address)}
       </Button>
     </HeaderStyled>
   );

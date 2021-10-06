@@ -17,6 +17,7 @@ interface DataProps {
   txHistory: string[];
   vaults: Vault[] | any;
   updateVaults: any;
+  updateAddress: any;
 }
 
 export const Context = createContext<DataProps>({
@@ -27,22 +28,26 @@ export const Context = createContext<DataProps>({
   txHistory: [],
   vaults: [],
   updateVaults: () => null,
+  updateAddress: () => null,
 });
 
 const DataProvider: React.FC = ({ children }) => {
   const [txStatus, setTxStatus] = React.useState("none");
   const [authStatus, setAuthStatus] = React.useState(0);
-  const [address, setAddress] = React.useState(0x0);
+  const [address, setAddress] = React.useState("0x0");
   const [ckbBalance, setCkbBalance] = React.useState(0);
   const [txHistory, setTxHistory] = React.useState([]);
   const [vaults, setVaults] = React.useState([]);
+
+  const updateAddress = (addr: string) => {
+    setAddress(addr);
+  }
 
   const updateVaults = (obj: never) => {
     setVaults((prevState) => [...prevState, obj]);
 
     setTxStatus("none");
     setAuthStatus(0);
-    setAddress(0x0);
     setCkbBalance(0);
     setTxHistory([]);
   };
@@ -57,6 +62,7 @@ const DataProvider: React.FC = ({ children }) => {
         txHistory,
         vaults,
         updateVaults,
+        updateAddress
       }}
     >
       {children}
