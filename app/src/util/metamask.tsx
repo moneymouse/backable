@@ -11,6 +11,6 @@ const web3 = new Web3(provider);
 
 export const getCkbBalance = async (addr: string) => {
   const balance = await web3.eth.getBalance(addr);
-  const balanceStr = (BigInt(balance) / 100000000n).toString();
-  return parseInt(balanceStr);
+  const balanceStr = BigInt(balance).toString();
+  return parseInt(balanceStr) / 100000000;
 };
