@@ -59,7 +59,12 @@ At the beginning of Backable's development, voting will be off-chain through a w
 
 ![nator-tokenomics](./assets/nator-tokenomics.png)
 
-## Build
+## Build Frontend
+
+
+```
+$cd app
+```
 
 ```
 $npm install
