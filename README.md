@@ -5,11 +5,6 @@
   <img src="https://img.shields.io/badge/license-MIT-blue.svg">
 </p>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0140271f-56e3-4d0e-8206-e362c32f588c/deploy-status)](https://app.netlify.com/sites/eloquent-yalow-ae8c51/deploys)
-
-
-
-
 **Backable Address contract on Testnet**: `0x98d9d37089E93592ca583f42672b0155EE9D8465`
 
 ## What is Backable?
