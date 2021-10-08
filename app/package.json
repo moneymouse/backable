@@ -13,8 +13,6 @@
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@mui/material": "^5.0.2",
-    "@polyjuice-provider/ethers": "^0.0.1-rc11",
-    "@polyjuice-provider/truffle": "^0.0.1-rc11",
     "@polyjuice-provider/web3": "^0.0.1-rc11",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
