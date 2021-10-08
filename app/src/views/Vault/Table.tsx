@@ -25,7 +25,6 @@ const Table: React.FC = () => {
     <TableContainer sx={{ marginTop: 4 }}>
       <TableStyled>
         <TableHead>
-          <h3>Transactions</h3>
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Hash ID</TableCell>

@@ -19,6 +19,7 @@ import Overview from "./Overview";
 
 import { CkbPriceContext, DataContext } from "../../contexts";
 import PriceBanner from "./PriceBanner";
+import { Text } from "../../components/Text";
 
 const Wrapper = styled.div`
   background: radial-gradient(
@@ -34,7 +35,8 @@ const Vault = () => {
   const [ckbSelected, setCkbSelected] = React.useState(0);
 
   const { ckbPrice, updateCkbPrice } = React.useContext(CkbPriceContext);
-  const { updateVaults, ckbBalance, updateBalance } = React.useContext(DataContext);
+  const { updateVaults, ckbBalance, updateBalance } =
+    React.useContext(DataContext);
 
   React.useEffect(() => {
     setInterval(() => {
@@ -110,7 +112,7 @@ const Vault = () => {
                     id: 4001,
                     ratio: 166.6,
                     ckb: ckbSelected,
-                    avail: (ckbSelected  * .10).toFixed(0),
+                    avail: (ckbSelected * 0.1).toFixed(0),
                     bcusd: calculateMaxAmountToMint(ckbSelected),
                   });
                   updateBalance(ckbBalance - ckbSelected);
@@ -129,7 +131,10 @@ const Vault = () => {
           </Card>
         </Box>
 
+        <Text fontSize="24px">Your Vaults</Text>
         <VaultsTable />
+
+        <Text fontSize="24px">Transactions</Text>
         <Table />
       </Container>
     </Wrapper>

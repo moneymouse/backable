@@ -18,7 +18,6 @@ const VaultsTable: React.FC = () => {
     <TableContainer component={Paper} sx={{ marginTop: 4, padding: 4 }}>
       <TableStyled>
         <TableHead>
-          <h3>Your Vaults</h3>
           <TableRow>
             <TableCell>Vault ID</TableCell>
             <TableCell>Current Ratio</TableCell>
@@ -46,9 +45,11 @@ const VaultsTable: React.FC = () => {
               </TableRow>
             ))
           ) : (
-            <div style={{ marginTop: 16 }}>
+            <TableRow sx={{ marginTop: 16 }}>
+              <TableCell>
               There are no hay vaults yet. Create one with CKB to get started.
-            </div>
+              </TableCell>
+            </TableRow>
           )}
         </TableBody>
       </TableStyled>
